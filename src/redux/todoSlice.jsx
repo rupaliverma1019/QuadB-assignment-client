@@ -8,23 +8,23 @@ const initialState = {
 };
 
 export const fetchTodos = createAsyncThunk('todos/fetchTodos', async () => {
-  const response = await axios.get('http://localhost:4040/');
+  const response = await axios.get('http://localhost:5000/');
   return response.data.data;
 });
 
 export const addTodo = createAsyncThunk('todos/addTodo', async (todo) => {
-  const response = await axios.post('http://localhost:4040/create', todo);
+  const response = await axios.post('http://localhost:5000/create', todo);
   return response.data.data;
 });
 
 export const updateTodo = createAsyncThunk('todos/updateTodo', async ({ id, todo }) => {
-    const response = await axios.put(`http://localhost:4040/update/${id}`, todo);
+    const response = await axios.put(`http://localhost:5000/update/${id}`, todo);
     return response.data.data;
   });
   
 
 export const deleteTodo = createAsyncThunk('todos/deleteTodo', async (id) => {
-  await axios.delete(`http://localhost:4040/delete/${id}`);
+  await axios.delete(`http://localhost:5000/delete/${id}`);
   return id;
 });
 
